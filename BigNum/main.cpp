@@ -10,14 +10,14 @@ public:
 		data = s; 
 	}
 
-	Big_integer& operator=(Big_integer& other) noexcept // оператор перемещающего присваивания
+	Big_integer& operator=(const Big_integer&& other) noexcept // РѕРїРµСЂР°С‚РѕСЂ РїРµСЂРµРјРµС‰Р°СЋС‰РµРіРѕ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	{
 		for (auto& i : other.data)
 			data[i] = other.data[i];
 		return *this;
 	}
 
-	Big_integer(Big_integer&& other) noexcept // конструктор перемещения
+	Big_integer(Big_integer&& other) noexcept // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРјРµС‰РµРЅРёСЏ
 	{
 		data = std::move(other.data);
 	}
@@ -72,11 +72,7 @@ public:
 		}
 		return Big_integer(temp);
 	}
-
-	
 };
-
-
 
 int main() {
 	auto number1 = Big_integer("114575");
@@ -85,9 +81,5 @@ int main() {
 	auto result2 = number1 * 2;
 	std::cout << result<< std::endl; // 193099
 	std::cout << result2<<std::endl; // 229150
-	//auto result3 = number1;
-	//std::cout << result3;
 	return 0;
 }
-
-
