@@ -10,7 +10,7 @@ public:
 		data = s; 
 	}
 
-	Big_integer& operator=(const Big_integer&& other) noexcept // оператор перемещающего присваивания
+	Big_integer& operator=(Big_integer&& other) noexcept // оператор перемещающего присваивания
 	{
 		for (auto& i : other.data)
 			data[i] = other.data[i];
